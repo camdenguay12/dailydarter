@@ -42,7 +42,7 @@ function dailyDarterReceive(payload){
     if(!Array.isArray(source))throw Error('Player feed missing players');
     const allowedTiers=new Set(winLabels.slice(1));
     const next=source.filter(p=>p&&typeof p.name==='string'&&p.name.trim()).map(p=>({
-      name:p.name.trim(),rank:Number(p.rank)>0?Number(p.rank):null,
+      name:p.name.trim(),rank:Number(p.rank)>0?Number(p.rank):'100+',
       country:typeof p.country==='string'?p.country.trim():null,
       hand:typeof p.hand==='string'?p.hand.trim():null,
       age:Number(p.age)>0?Number(p.age):null,
